@@ -223,10 +223,273 @@ main()
 
 
 ------------------------------
-🔹 Shorts
+🔹 SHORTS
 ------------------------------
 
+========================================
+CS50 Python — Week 00 SHORTS (FAST NOTES)
+========================================
 
+==============================
+1) TERMINAL & VS CODE COMMANDS
+==============================
+
+🔹 Creating & opening files
+code hello.py
+- Creates a file
+- Opens it in VS Code editor
+
+🔹 Running Python programs
+python hello.py
+- Runs file top → bottom
+- Executes Python code
+
+🔹 Clearing terminal
+clear
+Ctrl + L
+- Clears screen (does NOT delete files)
+
+🔹 Listing files
+ls
+- Shows files & folders in current directory
+
+🔹 Copy file
+cp hello.py goodbye.py
+- Copies file
+- No output = success
+
+🔹 Rename / move file
+mv goodbye.py farewell.py
+mv file.py ../
+- Rename or move file
+- ".." = parent directory
+
+🔹 Delete file
+rm file.py
+- Permanently deletes
+- Often asks confirmation
+
+🔹 Create folder
+mkdir folder
+- Creates directory
+
+🔹 Change directory
+cd folder
+cd ..
+cd
+- Enter folder
+- Go to parent folder
+- Go to home directory
+
+🔹 Delete folder
+rmdir folder
+- Folder must be empty
+
+🔹 Productivity tips
+↑ / ↓ arrows → command history
+Tab → autocomplete filenames
+
+==============================
+2) STRING METHODS (CLEANING DATA)
+==============================
+
+Strings often contain:
+- extra spaces
+- bad capitalization
+- messy formatting
+
+🔹 Common string methods
+(show is a string variable)
+
+show.strip()
+- Removes spaces from left & right
+
+show.capitalize()
+- Capitalizes ONLY first character
+
+show.title()
+- Capitalizes EVERY word (titles)
+
+🔹 Chaining methods (VERY IMPORTANT)
+show.strip().title()
+
+Order matters:
+1️⃣ strip → clean spaces
+2️⃣ title → format text
+
+🔹 Example
+Input:
+"  avatar the last airbender  "
+
+Output:
+"Avatar The Last Airbender"
+
+==============================
+3) LISTS + STRING JOIN
+==============================
+
+🔹 Creating new list
+cleaned_shows = []
+
+🔹 Adding items
+cleaned_shows.append(show.strip().title())
+
+🔹 Problem:
+Printing list directly shows Python syntax:
+['Show One', 'Show Two']
+
+🔹 Solution: join()
+
+" ".join(cleaned_shows)
+", ".join(cleaned_shows)
+
+- join() is a STRING method
+- Takes a LIST as input
+- String before .join() is the separator
+
+🔹 Example
+", ".join(["A", "B", "C"])
+→ "A, B, C"
+
+==============================
+4) FUNCTIONS & SIDE EFFECTS
+==============================
+
+🔹 Side effect = something changes
+NOT a return value
+
+Common side effects:
+- Printing to terminal
+- Changing global variables
+- Writing files
+
+🔹 Example: printing
+def say(phrase):
+    print(phrase)
+
+- Output appears immediately
+- Nothing is returned
+
+🔹 Global variables & side effects
+emoticon = ":("
+
+def main():
+    global emoticon
+    emoticon = ":)"
+    say("Hi")
+
+- global keyword required to MODIFY global variable
+- Without global → Python blocks change
+
+⚠️ Warning:
+Too many side effects = hard to debug
+
+==============================
+5) RETURN VALUES (VERY IMPORTANT)
+==============================
+
+🔹 Difference
+print() → side effect
+return → gives value back to program
+
+🔹 Example
+def greet(text):
+    if "hello" in text:
+        return "hello, there"
+    else:
+        return "I'm not sure"
+
+Nothing prints unless YOU print it.
+
+🔹 Using return values
+response = greet("hello computer")
+print(response)
+
+🔹 Why return is powerful
+- Can store result
+- Modify later
+- Combine with other logic
+
+Example:
+print("Hm,", greet("hello"))
+
+==============================
+6) VARIABLES & TYPES
+==============================
+
+🔹 Variable = container for value
+guess = 10
+
+- "=" means assignment
+- Right → left
+
+🔹 input() always returns STRING
+guess = input("Enter guess: ")
+
+"50" ≠ 50
+
+🔹 Converting types
+int("50") → 50
+float("3.14") → 3.14
+
+🔹 Bug example
+if guess == 50: ❌ (string vs int)
+
+Fix:
+guess = int(input("Enter guess: "))
+
+==============================
+7) VARIABLE SCOPE
+==============================
+
+🔹 Scope = where variable exists
+
+def get_guess():
+    guess = int(input())
+    return guess
+
+def main():
+    guess = get_guess()
+    print(guess)
+
+- Same variable name ≠ same variable
+- Each function has its OWN scope
+- Values passed via return & arguments
+
+==============================
+8) DEFINING YOUR OWN FUNCTIONS
+==============================
+
+🔹 Syntax
+def function_name(parameters):
+    code here
+
+🔹 Functions must be:
+1️⃣ Defined
+2️⃣ Then called
+
+def main():
+    print("Hi")
+
+main()   ← REQUIRED
+
+🔹 Why main()
+- Clean structure
+- Top-down logic
+- Functions reusable
+
+==============================
+9) KEY TAKEAWAYS FROM SHORTS
+==============================
+
+✔ input() → always string  
+✔ Methods use DOT notation  
+✔ strip + title = clean user data  
+✔ Side effects ≠ return values  
+✔ return gives control & flexibility  
+✔ Global variables need global keyword  
+✔ Terminal = powerful, not scary  
+✔ Functions + variables = building blocks  
 
 ==============================
 END — WEEK 00
