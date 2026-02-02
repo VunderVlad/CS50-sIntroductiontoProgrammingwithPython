@@ -1,0 +1,233 @@
+==============================
+CS50 Python — Week 00 NOTES
+==============================
+
+🔹 HOW IT WORKS (Big Picture)
+- Python code is just TEXT saved in .py files
+- Code is executed by the Python INTERPRETER
+- Program runs top → bottom, left → right
+- Run programs via terminal:
+  python filename.py
+- Errors = bugs (normal, expected, part of learning)
+
+------------------------------
+🔹 FIRST PROGRAM
+------------------------------
+print("hello, world")
+
+- print() → built-in function
+- "hello, world" → STRING (text)
+- Output on screen = SIDE EFFECT
+- Quotes mean literal text
+
+------------------------------
+🔹 FUNCTIONS (built-in)
+------------------------------
+Functions = actions / verbs
+
+Examples:
+- print() → shows output
+- input() → gets user input
+- int() → converts to integer
+- float() → converts to decimal number
+- round() → rounds numbers
+
+Functions:
+- can take ARGUMENTS
+- can RETURN values
+- can have SIDE EFFECTS (like printing)
+
+------------------------------
+🔹 VARIABLES
+------------------------------
+Variable = container for a value in memory
+
+Example:
+name = input("What's your name? ")
+
+- "=" means ASSIGNMENT (right → left)
+- NOT math equality
+- name stores the RETURN value of input()
+
+------------------------------
+🔹 STRINGS (str)
+------------------------------
+- Text data type
+- Created with " " or ' '
+
+Common string methods (dot-syntax):
+- name.strip()     → removes spaces (left & right)
+- name.capitalize()→ capitalizes first letter
+- name.title()     → capitalizes each word
+- name.split(" ")  → splits string into parts
+
+Methods:
+- Belong to the object
+- Use DOT syntax:
+  variable.method()
+
+Example:
+name = name.strip().title()
+
+------------------------------
+🔹 PRINT — IMPORTANT DETAILS
+------------------------------
+print("Hello", name)
+
+- Multiple arguments separated by commas
+- Automatically adds SPACE between arguments
+- Automatically ends with NEW LINE
+
+Named parameters:
+- sep=" "  → separator between arguments
+- end="\n" → what comes at the end
+
+Example:
+print("Hello", end="")
+print(name)
+
+------------------------------
+🔹 STRING CONCATENATION
+------------------------------
+Using +
+"Hello, " + name
+
+- + joins strings (NOT math)
+- Called concatenation
+
+------------------------------
+🔹 F-STRINGS (FORMAT STRINGS)
+------------------------------
+f"Hello, {name}"
+
+- Put f before quotes
+- {} inserts variable values
+- Cleanest & preferred style
+
+Formatting numbers:
+f"{z:,}"    → adds commas (1,000)
+f"{z:.2f}"  → 2 decimal places
+
+------------------------------
+🔹 COMMENTS & PSEUDOCODE
+------------------------------
+# This is a comment
+
+- Ignored by Python
+- Used to explain intent
+- Helps debugging & readability
+
+Pseudocode:
+- Comments describing steps before coding
+- Example:
+  # ask user for name
+  # say hello
+
+------------------------------
+🔹 DATA TYPES
+------------------------------
+str   → text
+int   → whole numbers (1, 2, -3)
+float → decimals (1.5, 3.14)
+
+IMPORTANT:
+input() ALWAYS returns a STRING
+
+Convert types:
+x = int(input("x: "))
+y = float(input("y: "))
+
+------------------------------
+🔹 MATH OPERATORS
+------------------------------
++   addition
+-   subtraction
+*   multiplication
+/   division
+%   remainder (modulo)
+**  exponent (power)
+
+Example:
+x ** 2 → x squared
+
+------------------------------
+🔹 INTERACTIVE MODE
+------------------------------
+Run:
+python
+
+- Executes code line by line
+- Acts like a calculator
+- Not used for full programs
+
+------------------------------
+🔹 USER-DEFINED FUNCTIONS
+------------------------------
+Define with def:
+
+def hello(to):
+    print("Hello,", to)
+
+- def = define
+- Parameters go in ()
+- Indentation is REQUIRED
+
+Call function:
+hello(name)
+
+------------------------------
+🔹 DEFAULT PARAMETERS
+------------------------------
+def hello(to="world"):
+    print("Hello,", to)
+
+- Used if no argument is passed
+- Optional arguments
+
+------------------------------
+🔹 RETURN VALUES
+------------------------------
+Functions can return values
+
+Example:
+def square(n):
+    return n * n
+
+- return sends value back
+- stops function execution
+
+------------------------------
+🔹 SCOPE (VERY IMPORTANT)
+------------------------------
+- Variables exist ONLY inside their function
+- Variables from main() NOT visible in other functions
+- Pass values via parameters
+
+------------------------------
+🔹 MAIN FUNCTION PATTERN
+------------------------------
+def main():
+    name = input("Name: ")
+    hello(name)
+
+def hello(to):
+    print("Hello,", to)
+
+main()
+
+- Functions must be defined BEFORE use
+- main() is explicitly called
+- Clean program structure
+
+
+
+
+------------------------------
+🔹 Shorts
+------------------------------
+
+
+
+==============================
+END — WEEK 00
+==============================
