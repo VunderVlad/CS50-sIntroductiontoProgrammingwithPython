@@ -1,0 +1,269 @@
+CS50 Week 01 — Conditionals (Lecture + Shorts)
+Unified Quick Notes with Explained Code
+Core Idea
+
+Conditionals allow a program to make decisions.
+Based on a question that is either True or False, the program chooses which code runs and which code is skipped.
+
+A program normally runs top to bottom, but conditionals create forks in the road.
+
+Boolean Expressions
+
+A Boolean expression is a question with only two possible answers:
+
+True
+
+False
+
+Examples:
+
+x < y
+x == y
+score >= 90
+name != "Harry"
+
+
+These expressions are used inside conditionals to control program flow.
+
+Comparison Operators
+Operator	Meaning
+==	equal to
+!=	not equal to
+<	less than
+<=	less than or equal
+>	greater than
+>=	greater than or equal
+
+⚠️ Important:
+= assigns a value
+== compares values
+
+if, elif, else
+
+Basic structure:
+
+if condition:
+    code runs if condition is True
+elif another_condition:
+    code runs if previous was False and this is True
+else:
+    code runs if nothing above was True
+
+
+Rules:
+
+Checked top to bottom
+
+Only one block runs
+
+else is a catch-all
+
+Example: Comparing Two Numbers
+x = int(input("What's x? "))
+y = int(input("What's y? "))
+
+if x < y:
+    print("x is less than y")
+elif x > y:
+    print("x is greater than y")
+else:
+    print("x is equal to y")
+
+
+Explanation:
+
+The program checks x < y
+
+If False, checks x > y
+
+If both False, it must be equal → else
+
+This avoids unnecessary extra checks
+
+Why elif Is Better Than Multiple if
+
+❌ Bad design:
+
+if x < y:
+    print("less")
+if x > y:
+    print("greater")
+
+
+This checks both, even if the first is true.
+
+✅ Correct design:
+
+if x < y:
+    print("less")
+elif x > y:
+    print("greater")
+
+
+This stops once a match is found.
+
+Boolean Operators
+and
+
+True only if both sides are True:
+
+if score >= 90 and score <= 100:
+    print("A")
+
+or
+
+True if at least one side is True:
+
+if name == "Harry" or name == "Ron":
+    print("Gryffindor")
+
+not
+
+Negates a condition:
+
+if not valid_input:
+    print("Invalid")
+
+Input Validation (From Shorts — Very Important)
+
+Never trust user input.
+
+difficulty = input("Difficult or Casual? ")
+
+if difficulty != "Difficult" and difficulty != "Casual":
+    print("Enter a valid difficulty")
+    return
+
+
+Explanation:
+
+Program checks input early
+
+If invalid → prints error and stops
+
+Prevents wrong logic later
+
+Full Example: Game Recommendation (Shorts)
+difficulty = input("Difficult or Casual? ")
+players = input("Single-player or Multiplayer? ")
+
+if difficulty != "Difficult" and difficulty != "Casual":
+    print("Enter a valid difficulty")
+    return
+
+if players != "Single-player" and players != "Multiplayer":
+    print("Enter a valid number of players")
+    return
+
+if difficulty == "Difficult" and players == "Multiplayer":
+    print("You might like Poker")
+elif difficulty == "Difficult" and players == "Single-player":
+    print("You might like Klondike")
+elif difficulty == "Casual" and players == "Multiplayer":
+    print("You might like Hearts")
+else:
+    print("You might like Clock")
+
+
+Explanation:
+
+Input is validated first
+
+Boolean expressions combine conditions with and
+
+else handles the last remaining case
+
+Clean, readable, efficient
+
+Modulo Operator % (Even / Odd)
+
+% returns the remainder.
+
+x = int(input("Number: "))
+
+if x % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+
+
+Explanation:
+
+Even numbers divide by 2 with remainder 0
+
+Odd numbers leave remainder 1
+
+Functions Returning Booleans
+def is_even(n):
+    return n % 2 == 0
+
+x = int(input("Number: "))
+
+if is_even(x):
+    print("Even")
+else:
+    print("Odd")
+
+
+Explanation:
+
+Function returns True or False
+
+Function call itself becomes the condition
+
+Clean separation of logic
+
+Pythonic Style (Short Version)
+
+Instead of:
+
+if n % 2 == 0:
+    return True
+else:
+    return False
+
+
+Just write:
+
+return n % 2 == 0
+
+
+The expression already evaluates to True or False.
+
+match Statement (Alternative to if/elif)
+name = input("Name: ")
+
+match name:
+    case "Harry" | "Ron" | "Hermione":
+        print("Gryffindor")
+    case "Draco":
+        print("Slytherin")
+    case _:
+        print("Who?")
+
+
+Explanation:
+
+Cleaner when matching fixed values
+
+| means OR
+
+_ is default (like else)
+
+No break needed
+
+Key Design Principles (Exam-Level)
+
+Ask fewer questions
+
+Use elif, not multiple if
+
+Validate input early
+
+Prefer readability over cleverness
+
+Stop execution when input is invalid
+
+One-Sentence Mental Model
+
+Conditionals are controlled forks in program flow, driven by Boolean logic.
